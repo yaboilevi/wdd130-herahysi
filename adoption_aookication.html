@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Adoption Application — Paws & Homes Portal</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="index.html" class="brand">
+        <img
+          src="images/pawlogo.png"
+          alt="Paws & Homes Portal logo"
+          class="logo"
+        />
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="adoptable_pets.html">Adoptable Pets</a></li>
+          <li><a href="adoption_aookication.html">Adoption Application</a></li>
+          <li><a href="client_report.html">Client Report</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="application-page">
+      <h1>Start Your Adoption Journey Today</h1>
+      <p class="application-instructions">
+        Ready to expand your family? Follow our standard three-step application
+        process outlined below. Once your form is successfully submitted, our
+        dedicated adoption coordinators will review your files within 48 hours.
+      </p>
+
+      <section class="steps">
+        <img
+          src="images/nav-logo.png"
+          alt="Three-step adoption process: submit online form, meet and greet, finalize home matching"
+          class="steps-image"
+        />
+        <ol class="steps-fallback">
+          <li>Submit Online Form</li>
+          <li>Meet &amp; Greet</li>
+          <li>Finalize Home Matching</li>
+        </ol>
+      </section>
+
+      <div class="application-body">
+        <form class="application-form" novalidate>
+          <div class="form-field">
+            <label for="fullName">Full Name</label>
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              placeholder="Enter your first and last name"
+              required
+            />
+          </div>
+
+          <div class="form-field">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="yourname@example.com"
+              required
+            />
+          </div>
+
+          <div class="form-field">
+            <label for="phone">Phone Number</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="(555) 000-0000"
+              required
+            />
+          </div>
+
+          <div class="form-field">
+            <label for="housingStatus">Housing Status</label>
+            <select id="housingStatus" name="housingStatus" required>
+              <option value="" disabled selected>Select one</option>
+              <option value="own">Own</option>
+              <option value="rent">Rent (Why would you rent a pet?)</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <button type="submit" class="cta-button">Submit Application</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+
+        <img
+          src="images/dog bed.jpg"
+          alt="empty ah bed"
+          class="pet-bed-image"
+        />
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 Paws & Homes Portal. Every pet deserves a home.</p>
+    </footer>
+
+    <script>
+      const form = document.querySelector(".application-form");
+      const status = document.querySelector(".form-status");
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        status.textContent =
+          "Thanks! Your application is in — our adoption coordinators will review it within 48 hours.";
+        form.reset();
+      });
+    </script>
+  </body>
+</html>

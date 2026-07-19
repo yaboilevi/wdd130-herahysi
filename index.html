@@ -1,12 +1,81 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Paws & Homes Portal</h1>
-    <h2>Home Page</h2>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Paws & Homes Portal — Find Your New Best Friend</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="index.html" class="brand">
+        <img
+          src="images/pawlogo.png"
+          alt="Paws & Homes Portal logo"
+          class="logo"
+        />
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="adoptable_pets.html">Adoptable Pets</a></li>
+          <li><a href="adoption_aookication.html">Adoption Application</a></li>
+          <li><a href="client_report.html">Client Report</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <img src="images/pawlogo.png" alt="happy-family" class="hero-image" />
+        <h1>Find Your New Best Friend at Paws & Homes</h1>
+      </section>
+
+      <p class="paw-divider" aria-hidden="true">🐾</p>
+
+      <section class="welcome">
+        <p>
+          Welcome to the Paws & Homes Portal. Our mission is to connect loving
+          families in our local community with shelter animals looking for a
+          second chance at a forever home. Whether you are looking to adopt or
+          temporarily foster, we make the process simple, supportive, and
+          completely transparent.
+        </p>
+        <a href="adoption_aookication.html" class="cta-button"
+          >Apply to Adopt</a
+        >
+      </section>
+
+      <section class="success-story">
+        <div class="success-story__text">
+          <h2>From Shelter to Sofa: Max's Journey</h2>
+          <p>
+            When the Miller family met Max, a three-year-old Golden Retriever
+            mix, it was love at first sight. Today, Max spends his afternoons
+            chasing tennis balls in a spacious backyard and curling up safely by
+            the fireplace.
+          </p>
+          <p class="quote">
+            "Adopting Max was the best decision our family ever made," says
+            Sarah Miller.
+          </p>
+        </div>
+        <img
+          src="images/THE-fatass.jpeg"
+          alt="diamon-smile"
+          class="success-story__image"
+        />
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 Paws & Homes Portal. Every pet deserves a home.</p>
+    </footer>
+  </body>
 </html>

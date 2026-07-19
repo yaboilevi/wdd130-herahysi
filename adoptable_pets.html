@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Adoptable Pets — Paws & Homes Portal</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="index.html" class="brand">
+        <img
+          src="images/pawlogo.png"
+          alt="Paws & Homes Portal logo"
+          class="logo"
+        />
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="adoptable_pets.html">Adoptable Pets</a></li>
+          <li><a href="adoption_aookication.html">Adoption Application</a></li>
+          <li><a href="client_report.html">Client Report</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="pets-page">
+      <h1>Meet Our Adoptable Pets</h1>
+      <p class="pets-instructions">
+        Use our convenient sidebar filters to sort our current residents by
+        species, age, or size. Click on any pet's individual profile card to
+        learn more about their unique personality traits, background history,
+        and home environment compatibility.
+      </p>
+
+      <div class="pets-layout">
+        <aside class="pets-filters">
+          <fieldset>
+            <legend>Species</legend>
+            <label
+              ><input type="checkbox" name="species" value="cat" /> Cats</label
+            >
+            <label
+              ><input type="checkbox" name="species" value="dog" /> Dogs</label
+            >
+          </fieldset>
+          <fieldset>
+            <legend>Age</legend>
+            <label
+              ><input type="checkbox" name="age" value="young" /> Under 2
+              Years</label
+            >
+            <label
+              ><input type="checkbox" name="age" value="adult" /> Adult</label
+            >
+          </fieldset>
+          <p class="filters-status" aria-live="polite"></p>
+        </aside>
+
+        <section class="pets-grid" aria-label="Adoptable pet profiles">
+          <article class="pet-card" data-species="cat" data-age="young">
+            <img src="images/tinder-cat1.jpeg" alt="Barnaby, cat" />
+            <h2>Barnaby</h2>
+            <p class="pet-meta">Age: 2 Years | Breed: Not sure</p>
+            <p>
+              Gentle, exceptionally quiet, loves window perches, and gets along
+              well with other household cats. Found him on Tinder.
+            </p>
+          </article>
+
+          <article class="pet-card" data-species="dog" data-age="young">
+            <img
+              src="images/my-baby.jpeg"
+              alt="Luna, a Border Collie Mix, sitting attentively outside"
+            />
+            <h2>Thor</h2>
+            <p class="pet-meta">Age: 1 Year | Breed: Very Dumb Thing</p>
+            <p>
+              High energy, incredibly NOT smart, masters basic meals quickly,
+              and thrives in active homes with kids. (He will draw blood)
+            </p>
+          </article>
+
+          <article class="pet-card" data-species="dog" data-age="adult">
+            <img
+              src="images/side-eye.jpeg"
+              alt="Milo, a Beagle, resting comfortably on a soft rug"
+            />
+            <h2>Bean</h2>
+            <p class="pet-meta">Age: 0.5 Years | Breed: Toasted Mellow</p>
+            <p>
+              Exceptionally friendly(to some people), loves food, fully
+              microchipped, and looking for a reason to judge you.
+            </p>
+          </article>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 Paws & Homes Portal. Every pet deserves a home.</p>
+    </footer>
+
+    <script>
+      const checkboxes = document.querySelectorAll(
+        '.pets-filters input[type="checkbox"]',
+      );
+      const cards = document.querySelectorAll(".pet-card");
+      const status = document.querySelector(".filters-status");
+
+      function activeValues(name) {
+        return Array.from(checkboxes)
+          .filter((cb) => cb.name === name && cb.checked)
+          .map((cb) => cb.value);
+      }
+
+      function applyFilters() {
+        const species = activeValues("species");
+        const age = activeValues("age");
+        let visibleCount = 0;
+
+        cards.forEach((card) => {
+          const matchesSpecies =
+            species.length === 0 || species.includes(card.dataset.species);
+          const matchesAge = age.length === 0 || age.includes(card.dataset.age);
+          const show = matchesSpecies && matchesAge;
+          card.style.display = show ? "" : "none";
+          if (show) visibleCount += 1;
+        });
+
+        status.textContent =
+          visibleCount === cards.length
+            ? ""
+            : `Showing ${visibleCount} of ${cards.length} pets.`;
+      }
+
+      checkboxes.forEach((cb) => cb.addEventListener("change", applyFilters));
+    </script>
+  </body>
+</html>
